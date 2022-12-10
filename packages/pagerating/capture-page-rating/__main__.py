@@ -2,8 +2,10 @@ import os
 import mysql.connector
 
 def main(args):
-
+    print(os.getenv('DB_HOST'))
+    '''
     try:
+        
         mydb = mysql.connector.connect(
             host = os.getenv('DB_HOST'),
             user = os.getenv('DB_USER'),
@@ -21,3 +23,4 @@ def main(args):
         mycursor.close()
     except mysql.connector.Error as error:
         print("Failed to insert record: {}".format(error))
+    '''
