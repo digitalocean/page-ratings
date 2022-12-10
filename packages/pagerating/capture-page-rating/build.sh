@@ -4,5 +4,5 @@ set -e
 
 virtualenv virtualenv
 source virtualenv/bin/activate
-pip install mysql-connector-python
+pip install -r requirements.txt
 deactivate
