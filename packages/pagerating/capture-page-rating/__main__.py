@@ -13,7 +13,6 @@ def main(args):
         )
 
         mycursor = mydb.cursor()
-        print('HERE I GO: ',database,port)
         sql = "INSERT INTO ratings (IPAddress, Rating, URL) VALUES ('255.255.255.255', 75, 'https://example.com')"
         mycursor.execute(sql)
 
