@@ -1,13 +1,12 @@
-environment: {}
+environment:
+  DB_HOST: "${DB_HOST}"
+  DB_USER: "${DB_USER}"
+  DB_DATABASE: "${DB_DATABASE}"
+  DB_PORT: "${DB_PORT}"
+  DB_PASSWORD: "${DB_PASSWORD}"
 parameters: {}
 packages:
   - name: pagerating
-    environment:
-      DB_HOST: "${DB_HOST}"
-      DB_USER: "${DB_USER}"
-      DB_DATABASE: "${DB_DATABASE}"
-      DB_PORT: "${DB_PORT}"
-      DB_PASSWORD: "${DB_PASSWORD}"
     parameters: {}
     annotations: {}
     functions:
@@ -17,6 +16,5 @@ packages:
         runtime: 'python:default'
         web: true
         parameters: {}
-        environment: {}
         annotations: {}
         limits: {}
