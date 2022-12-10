@@ -19,12 +19,11 @@ def main(args):
 
         mydb.commit()
         print(mycursor.rowcount, "record inserted.")
-        mycursor.close()
     except mysql.connector.Error as error:
         print("Failed to insert record: {}".format(error))
     finally:
-        if mydb.is_connected():
-            mydb.close()
+        if mycursor.is_connected():
+            mycursor.close()
             print("MySQL connection is closed")
             return {
                 'body': {
