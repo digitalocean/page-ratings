@@ -2,7 +2,12 @@ import os
 import mysql.connector
 
 def main(args):
-    print(os.getenv('DB_HOST'))
+    return {
+        'body': {
+            'response_type': 'in_channel',
+            'text': os.getenv('DB_HOST')
+        }
+    }
     '''
     try:
         
