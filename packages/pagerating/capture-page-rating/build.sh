@@ -2,5 +2,7 @@
 
 set -e
 
-virtualenv --without-pip virtualenv
-pip install mysql-connector-python --target virtualenv/lib/python3.9/site-packages
+virtualenv virtualenv
+source virtualenv/bin/activate
+pip install mysql-connector-python
+deactivate
