@@ -1,3 +1,4 @@
 #!/bin/sh
 # Install dependencies
-pip install mysql-connector-python
+cd mysql-connector-python
+python setup.py install
