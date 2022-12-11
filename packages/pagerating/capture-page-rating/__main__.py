@@ -21,7 +21,7 @@ def main(args):
         sql = "INSERT INTO ratings (IPAddress, Rating, URL) VALUES ('255.255.255.255', 75, 'https://example.com')"
         mycursor.execute(sql)
         mydb.commit()
-        printOut(mycursor.rowcount + "record inserted into " + os.getenv('DB_HOST') + os.getenv('DB_DATABASE'))
+        printOut(mycursor.rowcount + "record inserted into " + os.getenv('DB_HOST') + ":" + os.getenv('DB_DATABASE'))
         mycursor.close()
     except mysql.connector.Error as error:
-        printOut("Failed to insert record: {}".format(error))
+        printOut("Failed to insert record into " + os.getenv('DB_HOST') + ":" + os.getenv('DB_DATABASE') + ": {}".format(error))
