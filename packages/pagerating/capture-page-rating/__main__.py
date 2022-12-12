@@ -1,13 +1,6 @@
 import os
 import mysql.connector
 
-def print_out(message):
-    return {
-        'body': {
-            'response_type': 'in_channel',
-            'text': message
-        }
-    }
 def main(args):
     try:
         mydb = mysql.connector.connect(
@@ -21,7 +14,17 @@ def main(args):
         sql = "INSERT INTO ratings (IPAddress, Rating, URL) VALUES ('255.255.255.255', 75, 'https://example.com')"
         mycursor.execute(sql)
         mydb.commit()
-        print_out(mycursor.rowcount + "record inserted into " + os.getenv('DB_HOST') + ":" + os.getenv('DB_DATABASE'))
         mycursor.close()
+        return {
+            'body': {
+                'response_type': 'in_channel',
+                'text': mycursor.rowcount + "record inserted into " + os.getenv('DB_HOST') + ":" + os.getenv('DB_DATABASE')
+            }
+        }
     except mysql.connector.Error as error:
-        print_out("Failed to insert record into " + str(os.getenv('DB_HOST')) + ":" + str(os.getenv('DB_DATABASE')) + ": " + str(error))
+        return {
+            'body': {
+                'response_type': 'in_channel',
+                'text': "Failed to insert record into " + str(os.getenv('DB_HOST')) + ":" + str(os.getenv('DB_DATABASE')) + ": " + str(error)
+            }
+        }
