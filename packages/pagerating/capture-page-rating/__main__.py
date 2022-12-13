@@ -18,7 +18,7 @@ def main(args):
         return {
             'body': {
                 'response_type': 'in_channel',
-                'text': mycursor.rowcount + "record inserted into " + os.getenv('DB_HOST') + ":" + os.getenv('DB_DATABASE')
+                'text': str(mycursor.rowcount) + "record inserted into " + str(os.getenv('DB_HOST')) + ":" + str(os.getenv('DB_DATABASE'))
             }
         }
     except mysql.connector.Error as error:
